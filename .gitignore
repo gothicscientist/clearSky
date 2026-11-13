@@ -50,3 +50,4 @@ tests/e2e/.results/
 .env
 .env.*
 !.env.example
+dist-check/
