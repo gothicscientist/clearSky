@@ -1,0 +1,128 @@
+import type { Source } from './types';
+
+/**
+ * Foundation sources shared by every workstream. Streams add their own in
+ * their own file next to this one (entry/calm/fly/today/learn/journey.ts).
+ */
+export const commonSources: Source[] = [
+  {
+    id: 'cfr-25-303',
+    title: 'Factor of safety',
+    publisher: 'US Code of Federal Regulations, 14 CFR Part 25',
+    locator: '§25.303',
+    url: 'https://www.ecfr.gov/current/title-14/part-25/section-25.303',
+    kind: 'regulation',
+  },
+  {
+    id: 'cfr-25-305',
+    title: 'Strength and deformation',
+    publisher: 'US Code of Federal Regulations, 14 CFR Part 25',
+    locator: '§25.305',
+    url: 'https://www.ecfr.gov/current/title-14/part-25/section-25.305',
+    kind: 'regulation',
+  },
+  {
+    id: 'cfr-25-337',
+    title: 'Limit maneuvering load factors',
+    publisher: 'US Code of Federal Regulations, 14 CFR Part 25',
+    locator: '§25.337',
+    url: 'https://www.ecfr.gov/current/title-14/part-25/section-25.337',
+    kind: 'regulation',
+  },
+  {
+    id: 'cfr-25-341',
+    title: 'Gust and turbulence loads',
+    publisher: 'US Code of Federal Regulations, 14 CFR Part 25',
+    locator: '§25.341',
+    url: 'https://www.ecfr.gov/current/title-14/part-25/section-25.341',
+    kind: 'regulation',
+  },
+  {
+    id: 'cfr-25-1309',
+    title: 'Equipment, systems, and installations',
+    publisher: 'US Code of Federal Regulations, 14 CFR Part 25',
+    locator: '§25.1309',
+    url: 'https://www.ecfr.gov/current/title-14/part-25/section-25.1309',
+    kind: 'regulation',
+  },
+  {
+    id: 'cfr-121-385',
+    title: 'Composition of flight crew',
+    publisher: 'US Code of Federal Regulations, 14 CFR Part 121',
+    locator: '§121.385',
+    url: 'https://www.ecfr.gov/current/title-14/part-121/section-121.385',
+    kind: 'regulation',
+  },
+  {
+    id: 'cfr-121-441',
+    title: 'Proficiency checks',
+    publisher: 'US Code of Federal Regulations, 14 CFR Part 121',
+    locator: '§121.441',
+    url: 'https://www.ecfr.gov/current/title-14/part-121/section-121.441',
+    kind: 'regulation',
+  },
+  {
+    id: 'faa-aim-7-1',
+    title: 'Aeronautical Information Manual — Meteorology (turbulence reporting criteria)',
+    publisher: 'Federal Aviation Administration',
+    locator: 'Chapter 7, Section 1',
+    url: 'https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap7_section_1.html',
+    kind: 'guidance',
+  },
+  {
+    id: 'faa-turbulence',
+    title: 'Turbulence: staying safe',
+    publisher: 'Federal Aviation Administration',
+    url: 'https://www.faa.gov/travelers/fly_safe/turbulence',
+    kind: 'guidance',
+  },
+  {
+    id: 'faa-ac-120-88a',
+    title: 'Advisory Circular 120-88A: Preventing Injuries Caused by Turbulence',
+    publisher: 'Federal Aviation Administration',
+    url: 'https://www.faa.gov/documentLibrary/media/Advisory_Circular/AC_120-88A.pdf',
+    kind: 'guidance',
+  },
+  {
+    id: 'faa-afh',
+    title: 'Airplane Flying Handbook (FAA-H-8083-3C)',
+    publisher: 'Federal Aviation Administration',
+    url: 'https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/airplane_handbook',
+    kind: 'guidance',
+  },
+  {
+    id: 'faa-phak',
+    title: "Pilot's Handbook of Aeronautical Knowledge (FAA-H-8083-25C)",
+    publisher: 'Federal Aviation Administration',
+    url: 'https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak',
+    kind: 'guidance',
+  },
+  {
+    id: 'noaa-awc-api',
+    title: 'Aviation Weather Center Data API',
+    publisher: 'NOAA National Weather Service',
+    url: 'https://aviationweather.gov/data/api/',
+    kind: 'data',
+  },
+  {
+    id: 'nhs-panic',
+    title: 'Panic disorder',
+    publisher: 'NHS (UK National Health Service)',
+    url: 'https://www.nhs.uk/mental-health/conditions/panic-disorder/',
+    kind: 'health',
+  },
+  {
+    id: 'nhs-breathing',
+    title: 'Breathing exercises for stress',
+    publisher: 'NHS (UK National Health Service)',
+    url: 'https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/breathing-exercises-for-stress/',
+    kind: 'health',
+  },
+  {
+    id: 'ourairports',
+    title: 'OurAirports open data (public domain)',
+    publisher: 'OurAirports',
+    url: 'https://ourairports.com/data/',
+    kind: 'data',
+  },
+];
