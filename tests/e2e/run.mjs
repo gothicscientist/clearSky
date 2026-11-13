@@ -13,6 +13,7 @@
 // Flows live in tests/e2e/flows/*.mjs and default-export an array of { name, run(t) }.
 // Results: tests/e2e/.results/last.json (+ screens/ and videos/).
 import { spawn } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { join, relative, resolve } from 'node:path';
@@ -176,8 +177,10 @@ async function main() {
 
   const queue = [...runnable];
   const results = [];
+  // agent-browser sessions are machine-wide: key them by checkout so parallel worktrees never share a browser.
+  const checkoutKey = createHash('sha1').update(repo.toLowerCase()).digest('hex').slice(0, 8);
   const workers = Array.from({ length: Math.min(JOBS, runnable.length) }, async (_, i) => {
-    const browser = new Browser({ session: `clearsky-e2e-${i}`, headed: HEADED });
+    const browser = new Browser({ session: `clearsky-e2e-${checkoutKey}-${i}`, headed: HEADED });
     await browser.open('about:blank');
     await browser.viewport(VIEWPORT.w, VIEWPORT.h, 2);
     await browser.media('dark');
