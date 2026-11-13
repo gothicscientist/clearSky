@@ -97,6 +97,8 @@ function RootStack({ bg }: { bg: string }) {
       <Stack.Screen name="legal" options={{ animation: 'slide_from_bottom' }} />
       {/* Safety information is never paywalled. */}
       <Stack.Screen name="crisis" options={{ animation: 'slide_from_bottom' }} />
+      {/* Native e2e deep-link entry (no-op redirect outside EXPO_PUBLIC_E2E builds). */}
+      <Stack.Screen name="e2e" options={{ animation: 'none' }} />
       <Stack.Screen name="+not-found" />
     </Stack>
   );

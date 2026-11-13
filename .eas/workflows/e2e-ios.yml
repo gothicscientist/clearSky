@@ -1,0 +1,24 @@
+# Runs the Maestro critical-path flows (tests/maestro) on an iOS simulator build in EAS.
+# Needs an EAS project (npx eas-cli@latest init). Simulator builds need no Apple signing.
+# Trigger manually:  npx eas-cli@latest workflow:run .eas/workflows/e2e-ios.yml
+name: e2e iOS (Maestro)
+
+on:
+  pull_request: {}
+  workflow_dispatch: {}
+
+jobs:
+  build_ios_simulator:
+    name: Build iOS simulator (e2e bridge on, mock purchases)
+    type: build
+    params:
+      platform: ios
+      profile: e2e-simulator
+
+  maestro_test:
+    name: Maestro critical paths
+    needs: [build_ios_simulator]
+    type: maestro
+    params:
+      build_id: ${{ needs.build_ios_simulator.outputs.build_id }}
+      flow_path: ./tests/maestro

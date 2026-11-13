@@ -77,6 +77,16 @@ export default [
     },
   },
   {
+    name: 'native e2e deep link seeds state and opens a route',
+    async run(t) {
+      await t.start('fresh');
+      await t.goto('/e2e?seed=pro&path=%2Fcalm');
+      await t.see('calm.home', { timeout: 15000 });
+      const s = await t.appState();
+      expect(s.entitlement.active === true, 'seeded as a subscriber');
+    },
+  },
+  {
     name: 'corrupt storage never crashes the app',
     async run(t) {
       await t.start('pro');

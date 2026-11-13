@@ -1,0 +1,23 @@
+# Production build -> TestFlight. Needs the Apple/EAS setup in docs/SETUP.md.
+# Trigger manually:  npx eas-cli@latest workflow:run .eas/workflows/testflight.yml
+name: TestFlight
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  build_ios:
+    name: Build iOS (production)
+    type: build
+    params:
+      platform: ios
+      profile: production
+
+  testflight:
+    name: Upload to TestFlight
+    needs: [build_ios]
+    type: testflight
+    params:
+      build_id: ${{ needs.build_ios.outputs.build_id }}
+      profile: production
+      changelog: "Please test onboarding, the paywall (sandbox), SOS, breathing, the companion and the landing card."
